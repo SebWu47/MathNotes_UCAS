@@ -1,0 +1,25 @@
+\section{2018.9.10 Monday}
+\begin{defi}
+	For many differentiable atlas on one topological manifold $M$, the $C^\infty$-compatibility
+	is an equivalent relationship. Every equivalent class $S$ is called a differential structure
+	and $(M,S)$ a differential manifold. In other words, we can also treat $S$ as a maximum differential
+	atlas, i.e., for any differentiable atlas $S'$ compatible with $S$, we have $S'\subset S$.
+\end{defi}
+\begin{ex}[Torus]
+	For independent $w_1,w_2\in\m{R}^2$, let $\Gamma=\{nw_1+mw_2: n,m\in\m{Z}\}$. Define a relation $\sim$ on
+	$\m{R}^2$ by $p\sim q$ if and only if $p-q\in \Gamma$, then the torus $\m{R}^2/\Gamma:=\m{R}^2/\!\sim$ is a $2$-dimensional differential manifold.
+\end{ex}
+\begin{proof}
+	Easy to check a torus is Hausdorff and secondly countable, so we only have to equip an atlas on it. The natural map $\pi:\m{R}^2\to\m{R}^2/\Gamma$ is open since
+	\[\pi^{-1}\big(\pi(A)\big)=\bigcup_{x\in \Gamma} A+x.\]
+	Notice that $\{B_r(p):p\in\m{R}^2\}$ covers $\m{R}^2$ for any $r>0$, we prove $\pi|B_r(p): B_r(p)\to U_p$
+	is a homeomorphism for small enough $r$ where $U_p=\pi(B_r(p))$. Suppose $\pi(x)=\pi(y)$, then $x-y\in \Gamma$, since $x-y\in B_{2r}(0)$ and $B_{2r}(0)\cap \Gamma=\{0\}$ for small enough $r$, we know $\pi|B_r(p)$ is injective and thus a homeomorphism. Now let $f_p=\big(\pi|B_r(p)\big)^{-1}$, we prove $f_p\circ f_q^{-1}$ is a translation and thus we did equip an atlas. Since
+	\[f_p\circ f_q^{-1}(x)=x+z(x)\in B_r(p),\quad \forall x\in B_r(q)\]
+	for some $z(x)\in \Gamma$. Suppose $x+z_1,\,y+z_2$ be two such points, we know
+	\begin{align*}
+		|z_1-z_2|&\leq \big|z_1+x-(z_2+y)\big|+|x-y|\\
+				 &\leq |z_1+x-p|+|z_2+y-p|+|x-q|+|y-q|\\
+				 &<4r.
+	\end{align*}
+	Thus $z_1-z_2\in B_{4r}(0)\cap \Gamma=\{0\}$ for small enough $r$, which completes our proof.
+\end{proof}
