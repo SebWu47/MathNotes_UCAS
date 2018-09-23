@@ -1,0 +1,65 @@
+\begin{pro}%1.1
+	Describe an embedding $S^1\times S^1\hookto \m{R}^3$ explicitly using elementary functions; more generally show that $S^p\times S^q$ embeds in $\m{R}^{p+q+1}$. (Hint: show that $S^p\times \m{R}^{q+1}$ embeds in $\m{R}^{p+q+1}$ inductively.)
+\end{pro}
+\begin{proof}
+	Denote $f:S^1\times S^1\to \m{R}^3$ by
+	\[x=\big(1+\frac{c}{r}\big)a,\;y=\big(1+\frac{c}{r}\big)b,\;z=d,\]
+	where $a^2+b^2=r^2,\; r>1,\; c^2+d^2=1$. To Show $f$ is differentiable, we need an atlas over $S^1\times S^1$. Let $S_t^+=\{(a,b):a^2+b^2=t^2,b>0\}$, then 
+	\[\varphi: S_r^+\times S_1^+\to (-r,r)\times (-1,1),\; \varphi(a,b,c,d)=(a,c)\]
+	is a chart and $f\circ \varphi^{-1}: (-r,r)\times (-1,1)\to \m{R}^3$ is given by
+	\[x=\big(1+\frac{c}{r}\big)a,\;y=\big(1+\frac{c}{r}\big)\sqrt{1-a^2},\;z=\sqrt{1-c^2},\]
+	which is smooth. Similarly, it is true for all other charts and thus $f$ is smooth. Now we show $X:=f(S^1\times S^1)$ is a submanifold. Since 
+	\[X=\{(x,y,z)\in \m{R}^3: \big(\sqrt{x^2+y^2}-r\big)^2+z^2=1\},\]
+	we define $g(x,y,z)=\big(\sqrt{x^2+y^2}-r\big)^2+z^2-1$ near $X$, then $g(X)\subset \m{R}^2\times 0$. Notice that
+	\[g_x=8\Big(1-\frac{r}{\sqrt{x^2+y^2}}\Big)x,\;g_y=8\Big(1-\frac{r}{\sqrt{x^2+y^2}}\Big)y,\; g_z=2z,\]
+	easy to check $g_x,g_y,g_z$ cannot vanish simultaneously on $X$, thus there must be at least one map around every point on $X$, such that the rank is constantly $2$. For example, we let $\phi(x,y,z)=\big(x,y,g(x,y,z)\big)$ or $\phi(x,y,z)=\big(g(x,y,z),y,z\big)$, then by the constant-rank level set theorem, $X$ is a submanifold. Finally we show $f:S^1\times S^1\to X$ is a diffeomorphism, notice $f^{-1}:X\to S^1\times S^1$ is given by
+	\[a=\frac{rx}{\sqrt{x^2+y^2}},\;b=\frac{ry}{\sqrt{x^2+y^2}},\; c=\sqrt{x^2+y^2}-r,\;
+	d=z,\]
+	we know $\varphi\circ f^{-1}$ is smooth and so is $f^{-1}$.
+\end{proof}
+\begin{pro}%1.2
+	Let $x=[\seq{x}{0}{n}]$ be the homogeneous coordinates of points in $\m{R}P^n$. Show that
+	\begin{align*}
+		f:\m{R}P^n\times \m{R}P^m&\to \m{R}P^{mn+m+n}\\
+		([\seq{x}{0}{n}],[\seq{y}{0}{m}])&\mapsto [x_0,y_0,x_0y_1,\dots,x_iy_j,\dots,x_ny_m]
+	\end{align*}
+	is an embedding.
+\end{pro}
+
+\begin{pro}%2.1
+	Let $M$ be a differential manifold, $C^{\infty}(M)$ the algebra of differentiable functions on $M$. For a point $p\in M$, let $\ma{M}_p=\{\phi\in C^{\infty}(M): \phi(p)=0\}$. Show that 
+	\begin{description}
+		\item[(a)] $\ma{M}_p$ is a maximal ideal of $C^{\infty}(M)$.
+		\item[(b)] If $M$ is compact and $\ma{M}\subsetneq C^{\infty}(M)$ is a maximal ideal, then there exists some $p\in M$ such that $\ma{M}=\ma{M}_p$.
+	\end{description}
+\end{pro}
+\begin{proof}
+	For (a), suppose $\ma{M}_p\subsetneq \ma{M}\subset C^{\infty}(M)$ where $\ma{M}$ is an ideal, then there is some smooth function $f\in \ma{M}$ with $f(p)\neq 0$. Since the constant function $a/f(p)$ is smooth for all $a\in\m{R}$, $g_a:=af/f(p)\in \ma{M}$ with $g_a(p)=a$. Now for any smooth function $h$, we have $h-g_{h(p)}\in\ma{M}_p$ and thus $h\in\ma{M}$, which is to say $\ma{M}=C^{\infty}(M)$.
+
+	For $(b)$, first we show there must be some $p\in M$ such that $f(p)=0,\;\forall f\in\ma{M}$. If not, then for all $p\in M$, there is some open neighborhood $p\in U_p$ and $f_p\in \ma{M}$ such that $f_p$ does not have any zeros on $U_p$. Since all these $U_p$-s cover $M$ and $M$ is compact, we get a finite cover $U_{p_1},\dots,U_{p_n}$. Easy to see $0<f:=f_{p_1}^2+\dots +f_{p_n}^2\in \ma{M}$ and thus $1\in \ma{M},\; \ma{M}=C^{\infty}(M)$ since $1/f$ is smooth, which is a contradiction. Now let $\ma{M}_p\subset \ma{M}$ for some $p$, then by (a) $\ma{M}_p=\ma{M}$ follows obviously.
+\end{proof} 
+\begin{pro}%2.2
+	Let $\phi:S^n\to\m{R}$ be a differentiable function. Show that there are two different points $p,q\in S^n$ such that $\phi_{*p}$ and $\phi_{*q}$ are both zero.
+\end{pro}
+\begin{proof}
+	Suppose $\phi$ is not a constant function, since $S^n$ is compact and $\phi$ is continuous, there must be two different points where $\phi$ gets its extreme values. Let $p$ be such a point and $(0\in U\subset \m{R}^n,f)$ be a chart where $f(0)=p$, then $\phi\circ f:U\to \m{R}$ gets its extreme value at $p$, so 
+	\[0=\big(\phi\circ f\big)_{*p}=\phi_{*p}\circ f_{*0}.\]
+	Notice $f$ is invertible on $U$, so $\phi_{*p}=0$.
+\end{proof}
+\begin{pro}%2.3
+	Let $X=\m{R}\sqcup \m{R}$ be the disjoint union of two real lines, $f:X\to\m{R}^2$ be the map, which on the first connected component is $x\mapsto (x,0)$, on the second connected component is $y\mapsto (0,\exp(y))$. Show that $f$ is an injective immersion, but not an embedding. Draw a sketch of the image.
+\end{pro}
+\begin{proof}
+	We call the first component $\m{R}_1$ and the second $\m{R}_2$, then 
+	\begin{align*}
+		\rank_x(f)&=\rank_x(1,0)^T =1,\quad \forall x\in\m{R}_1,\\
+		\rank_y(f)&=\rank_y(0,e^y)^T =1,\quad \forall y\in\m{R}_2,
+	\end{align*}
+	which tells us $f$ is an immersion. Now suppose $f$ is an embedding and let
+	\[Y:=f(X)=(\m{R}\times 0)\cup (0\times \m{R}_+),\]
+	then there is some chart $(\varphi,U)$ around $(0,0)$ such that
+	$\varphi(U\cap Y)=\varphi(U)\cap (\m{R}\times 0)$. For some small $\ep>0$ with $0\in B_0(\ep)\subset U$, since $\varphi$ is a homeomorphism, we know $\varphi\big(B_0(\ep)\cap Y\big)=(a,b)$ for some $a<0<b$. This is impossible since $\varphi\big(B_0(\ep)\cap Y\ba (0,0)\big)=(a,c)\cup (c,b)$ leads to that the domain has three connected components while the image has two. Thus we finally proved $f$ is not an embedding.
+\end{proof}
+\begin{pro}%2.4
+	Let $f:\m{R}\sqcup S^1 \to\m{C}$ be the map, which on the first connected component is $t\mapsto (1+e^t)\cdot e^{it}$, on the second connected component is $e^{it}\mapsto e^{it}$. Show that $f$ is an injective immersion, but not an embedding. Draw a sketch of the image.
+\end{pro}
